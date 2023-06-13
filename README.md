@@ -28,9 +28,9 @@ Start time: 1530
 Finish time: 1656
 Actual time needed to complete: 1hr 26mins
 
-Name of feature: Card 2
-Estimate of time needed to complete:
-Start time:
+Name of feature: Card 2 Location
+Estimate of time needed to complete: 1.5 hrs
+Start time: 1715
 Finish time:
 Actual time needed to complete:
 
