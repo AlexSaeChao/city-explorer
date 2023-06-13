@@ -23,22 +23,22 @@
 ## Time Estimates
 
 Name of feature: Card 1 Set up Reast Repo and API keys
-Estimate of time needed to complete: 2 hrs
+Estimate of time needed to complete: 2hrs
 Start time: 1530
 Finish time: 1656
 Actual time needed to complete: 1hr 26mins
 
 Name of feature: Card 2 Location
-Estimate of time needed to complete: 1.5 hrs
+Estimate of time needed to complete: 1.5hrs
 Start time: 1715
-Finish time:
-Actual time needed to complete:
+Finish time: 1915
+Actual time needed to complete: 2hrs
 
-Name of feature: Card 3
-Estimate of time needed to complete:
-Start time:
-Finish time:
-Actual time needed to complete:
+Name of feature: Card 3 Map
+Estimate of time needed to complete: 1hr
+Start time: 1922
+Finish time:1954
+Actual time needed to complete:32mins
 
 Name of feature: Card 4
 Estimate of time needed to complete:
