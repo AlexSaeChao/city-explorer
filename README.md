@@ -40,8 +40,9 @@ Start time: 1922
 Finish time:1954
 Actual time needed to complete:32mins
 
-Name of feature: Card 4
-Estimate of time needed to complete:
-Start time:
-Finish time:
-Actual time needed to complete:
+Name of feature: Card 4 Error handling
+Estimate of time needed to complete: 1 hr
+Start time: 2005
+Finish time: 2036
+Actual time needed to complete: 31
+already completed with map & location
