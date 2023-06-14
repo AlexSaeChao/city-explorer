@@ -1,5 +1,8 @@
 import React from 'react';
 import axios from 'axios';
+import Weather from './Weather';
+import Card from 'react-bootstrap/Card';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 class App extends React.Component {
   constructor(props) {
@@ -19,6 +22,29 @@ class App extends React.Component {
     })
   }
 
+  handleGetWeatherInfo = async () => {
+    try {
+      let url = `${process.env.REACT_APP_SERVER}/weather?searchQuery=${this.state.city}`;
+      let weatherDataFromAxios = await axios.get(url);
+      let weatherData = weatherDataFromAxios.data;
+
+
+
+      this.setState({
+        forecastData: weatherData,
+        error: false,
+        errorMsg: ''
+      })
+    } catch (error) {
+      this.setState({
+        error: true,
+        errorMsg: 'Error fetching data, ' + error.message,
+      })
+    }
+  }
+
+
+
   handleGetCityInfo = async (event) => {
     event.preventDefault();
 
@@ -26,6 +52,7 @@ class App extends React.Component {
       let url = `https://us1.locationiq.com/v1/search?key=${process.env.REACT_APP_LOCATIONIQ_API}&q=${this.state.city}&format=json`;
       let cityDataFromAxios = await axios.get(url);
       let data = cityDataFromAxios.data;
+
 
       if (data.length > 0) {
         this.setState({
@@ -45,6 +72,8 @@ class App extends React.Component {
           mapImageUrl: '',
         });
       }
+
+      this.handleGetWeatherInfo();
 
     } catch (error) {
       this.setState({
@@ -66,14 +95,18 @@ class App extends React.Component {
           <button type="submit" className="submit-button">Exploration Time!</button>
         </form>
         {this.state.error ? (
-          <p className="error-message">{this.state.errorMsg}</p>
-        ) : (
-          <div className="content">
-            <p className="location-info">{this.state.locationData.display_name}</p>
-            <p className="location-info">Latitude: {this.state.locationData.latitude}</p>
-            <p className="location-info">Longitude: {this.state.locationData.longitude}</p>
-            {this.state.mapImageUrl && <img src={this.state.mapImageUrl} alt="City Map" className="city-map" />}
+          <div className="alert alert-danger" role="alert">
+            Error: {this.state.errorMsg}
           </div>
+        ) : (
+          <Card className="content">
+            <Card.Body>
+              <Card.Title className="location-info">{this.state.locationData.display_name}</Card.Title>
+              <Card.Text className="location-info">Latitude: {this.state.locationData.latitude} Longitude: {this.state.locationData.longitude}</Card.Text>
+              {this.state.forecastData && this.state.forecastData.length > 0 && <Weather forecastData={this.state.forecastData} />}
+              {this.state.mapImageUrl && <Card.Img src={this.state.mapImageUrl} alt="City Map" className="city-map" />}
+            </Card.Body>
+          </Card>
         )}
         <footer className="footer">Author: Alex Chao</footer>
       </div>

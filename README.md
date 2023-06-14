@@ -46,3 +46,9 @@ Start time: 2005
 Finish time: 2036
 Actual time needed to complete: 31
 already completed with map & location
+
+Name of feature: rendering weather to page
+Estimate of time needed to complete: 1 hr
+Start time: 1815
+Finish time: 2321
+Actual time needed to complete: 5 hrs 7 mins

@@ -5,7 +5,6 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: rgb(169, 195, 195);
 }
 
 code {
@@ -18,7 +17,7 @@ code {
   margin: 0 auto;
   padding: 20px;
   text-align: center;
-  background-color: 
+  background-color: rgb(255, 211, 167)
 }
 
 h1 {
