@@ -13,6 +13,7 @@ class App extends React.Component {
       error: false,
       errorMsg: '',
       mapImageUrl: '',
+      forecastData: [],
     }
   }
 
@@ -24,7 +25,7 @@ class App extends React.Component {
 
   handleGetWeatherInfo = async () => {
     try {
-      let url = `${process.env.REACT_APP_SERVER}/weather?searchQuery=${this.state.city}`;
+      let url = `${process.env.REACT_APP_SERVER}/weather?lat=${this.state.locationData.latitude}&lon=${this.state.locationData.longitude}&searchQuery=${this.state.city}`;
       let weatherDataFromAxios = await axios.get(url);
       let weatherData = weatherDataFromAxios.data;
 
@@ -48,18 +49,22 @@ class App extends React.Component {
       let url = `https://us1.locationiq.com/v1/search?key=${process.env.REACT_APP_LOCATIONIQ_API}&q=${this.state.city}&format=json`;
       let cityDataFromAxios = await axios.get(url);
       let data = cityDataFromAxios.data;
-
+  
       if (data.length > 0) {
+        const locationData = {
+          latitude: data[0].lat,
+          longitude: data[0].lon,
+          display_name: data[0].display_name,
+        };
+  
         this.setState({
-          locationData: {
-            latitude: data[0].lat,
-            longitude: data[0].lon,
-            display_name: data[0].display_name,
-          },
-          mapImageUrl: `https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATIONIQ_API}&center=${data[0].lat},${data[0].lon}&zoom=10`,
+          locationData,
+          mapImageUrl: `https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATIONIQ_API}&center=${locationData.latitude},${locationData.longitude}&zoom=10`,
           error: false,
           errorMsg: ''
-        })
+        }, () => {
+          this.handleGetWeatherInfo();
+        });
       } else {
         this.setState({
           error: true,
@@ -67,9 +72,6 @@ class App extends React.Component {
           mapImageUrl: '',
         });
       }
-
-      this.handleGetWeatherInfo();
-
     } catch (error) {
       this.setState({
         error: true,
