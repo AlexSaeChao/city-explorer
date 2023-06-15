@@ -1,12 +1,7 @@
 import React from 'react';
 
 class Weather extends React.Component {
-  constructor(props) {
-    super(props)
-  }
-
   render() {
- 
     return (
       <div className="weather-container">
         {this.props.forecastData.map((forecast, index) => (
