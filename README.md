@@ -52,3 +52,9 @@ Estimate of time needed to complete: 1 hr
 Start time: 1815
 Finish time: 2321
 Actual time needed to complete: 5 hrs 7 mins
+
+Name of feature: adding movies to front end
+Estimate of time needed to complete: 1 hr
+Start time: 1610
+Finish time: 
+Actual time needed to complete: 
