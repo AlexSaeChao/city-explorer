@@ -1,8 +1,7 @@
 import React from 'react';
 import axios from 'axios';
-import WeatherModal from './components/WeatherModal';
-import MoviesModal from './components/MoviesModal';
-import Header from './components/Header';
+import WeatherModal from './WeatherModal';
+import MoviesModal from './MoviesModal';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -117,7 +116,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Header />
+        <header className="header">City Explorer</header>
         <div className="container">
           <form onSubmit={this.handleGetCityInfo} className="form-container">
             <div className="label-field-container">
@@ -134,9 +133,9 @@ class App extends React.Component {
             <div className="content">
               <div className="card-placeholder">
                 <Card>
-                  {this.state.mapImageUrl && (
-                    <Card.Img src={this.state.mapImageUrl} alt="City Map" className="city-map" />
-                  )}
+                    {this.state.mapImageUrl && (
+                      <Card.Img src={this.state.mapImageUrl} alt="City Map" className="city-map" />
+                    )}
                   <Card.Body>
                     <Card.Title className="location-info">
                       {this.state.locationData.display_name}

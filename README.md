@@ -56,17 +56,5 @@ Actual time needed to complete: 5 hrs 7 mins
 Name of feature: adding movies to front end
 Estimate of time needed to complete: 1 hr
 Start time: 1610
-Finish time:1815
-Actual time needed to complete: 4hr 5mins
-
-Name of feature: rounding out css
-Estimate of time needed to complete: 1 hr
-Start time: 1823
-Finish time:2027
-Actual time needed to complete: 2hr 4mins
-
-Name of feature: refactoring Frontend
-Estimate of time needed to complete: 1 hr
-Start time: 1911
-Finish time:
+Finish time: 
 Actual time needed to complete: 
